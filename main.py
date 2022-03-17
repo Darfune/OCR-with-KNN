@@ -40,11 +40,22 @@ def read_labels(filename, n_max_labels = None):
             labels.append(label)
     return labels
 
+def flatten_list(l): # flattening the images to a list of
+    return [pixel for sublist in l for pixel in sublist] # 1 row and 784 col
+
+def extract_features(X):
+    return [flatten_list(sample) for sample in X]
+
 def main():
     X_train = read_images(TRAIN_DATA_FILENAME, 100)
     y_train = read_labels(TRAIN_LABELS_FILENAME, 100)
     X_test = read_images(TEST_DATA_FILENAME, 100)
     y_test = read_labels(TEST_LABEL_FILENAME, 100)
+
+    X_train = extract_features(X_train) # 28x28 image -> 1x784 list
+    X_test = extract_features(X_test) # 28x28 image -> 1x784 list
+
+    
 
 if __name__ == '__main__':
     main()
