@@ -78,7 +78,7 @@ def Knn_function(X_train, y_train, X_test, y_test, k=3):
     return y_predict
 
 def main():
-    X_train = read_images(TRAIN_DATA_FILENAME, 1000)
+    X_train = read_images(TRAIN_DATA_FILENAME)
     y_train = read_labels(TRAIN_LABELS_FILENAME)
     X_test = read_images(TEST_DATA_FILENAME, 5)
     y_test = read_labels(TEST_LABEL_FILENAME)
